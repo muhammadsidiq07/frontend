@@ -41,6 +41,7 @@
     "saga": "^4.0.0-alpha",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4",
-    "web-vitals": "^3.3.1"
+    "web-vitals": "^3.3.1",
+    "yup": "^1.1.1"
   }
 }

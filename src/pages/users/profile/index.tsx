@@ -1,18 +1,18 @@
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
-import Layout from '@/components/layout';
+import Layout from '../../../components/layout';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.css";
 
-import { GetUsersRequest } from '@/redux/action/users/usersAction';
-import { GetUserPasswordRequest } from '@/redux/action/users/user-passwordAction';
-import { GetUserBonusPointsRequest } from '@/redux/action/users/user-bonus-pointsAction';
-import { GetUserMembersRequest } from '@/redux/action/users/user-membersAction';
-import { GetRolesRequest } from '@/redux/action/users/rolesAction';
-import { GetUserProfilesRequest } from '@/redux/action/users/user-profilesAction';
+import { GetUsersRequest } from '../../../redux/action/users/usersAction';
+import { GetUserPasswordRequest } from '../../../redux/action/users/user-passwordAction';
+import { GetUserBonusPointsRequest } from '../../../redux/action/users/user-bonus-pointsAction';
+import { GetUserMembersRequest } from '../../../redux/action/users/user-membersAction';
+import { GetRolesRequest } from '../../../redux/action/users/rolesAction';
+import { GetUserProfilesRequest } from '../../../redux/action/users/user-profilesAction';
 
 import Edit from './user-password/Edit';
 import EditGeneral from './general/Edit';

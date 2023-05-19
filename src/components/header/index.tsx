@@ -4,22 +4,29 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image"; 
-// import { UserSignoutRequest } from "../../redux-saga/action/userAction";
-// const navigation = [
-//   { name: "Dashboard", href: "/dashboard", current: true },
-//   { name: "regions", href: "/master/regions", current: false },
-// ];
+import { doPushSignoutRequest } from "../../redux/action/users/userAction";
 
-// function classNameNames(...classNamees: any) {
-//   return classNamees.filter(Boolean).join(" ");
-// }
+function classNames(...classes: any) {
+  return classes.filter(Boolean).join(' ')
+}
 
 export default function Header() {
   const dispatch = useDispatch()
+  const { UserProfile } = useSelector((state: any) => state.userState)
   const router = useRouter();
+  const logout = () => {
+    dispatch(doPushSignoutRequest())
+    router.reload()
+}
 
+useEffect(() => {
+  if (!UserProfile) {
+      router.push('/signin')
+  }
+}, [UserProfile, router])
   return (
     <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-darkBlue dark:border-coldBlue">
+      <>
       <div className="px-3 py-3 lg:px-5 lg:pl-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-start">
@@ -83,26 +90,18 @@ export default function Header() {
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                    href="#"
+                    onClick={()=> logout()}
                     className="{classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}">
                       Sign out
-
                     </a>
                   )} 
-                  
-
                 </Menu.Item>
               </Menu.Items>
             </Transition>
           </Menu>
-                    
-          
-     
         </div>
       </div>
+      </>
     </nav>
-
-    
-    
   );
 }

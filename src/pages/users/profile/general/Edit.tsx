@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik, FormikProvider } from "formik";
-import { FindUsersRequest, EditUsersRequest } from "@/redux/action/users/usersAction";
-import { FindRolesRequest, EditRolesRequest } from "@/redux/action/users/rolesAction";
-import { FindUserProfilesRequest, EditUserProfilesRequest } from "@/redux/action/users/user-profilesAction";
+import { FindUsersRequest, EditUsersRequest } from "../../../../redux/action/users/usersAction";
+import { FindRolesRequest, EditRolesRequest } from "../../../../redux/action/users/rolesAction";
+import { FindUserProfilesRequest, EditUserProfilesRequest } from "../../../../redux/action/users/user-profilesAction";
 
 export default function EditGeneral(props: any) {
     const [showModal, setShowModal] = useState(false);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik, FormikProvider } from "formik";
-import { FindUserPasswordRequest, EditUserPasswordRequest } from "@/redux/action/users/user-passwordAction";
+import { FindUserPasswordRequest, EditUserPasswordRequest } from "../../../../redux/action/users/user-passwordAction";
 
 export default function Edit(props: any) {
     const [showModal, setShowModal] = useState(false);

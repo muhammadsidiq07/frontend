@@ -1,26 +1,33 @@
-//import { UserSigninRequest } from '@/pages/redux-saga/action/userAction'
+import { UserSigninRequest } from '../redux/action/users/userAction';
 import { useFormik } from 'formik'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from "react-redux";
+import * as Yup from 'yup';
 
 
 export default function Signin() {
     const dispatch = useDispatch()
     const router = useRouter()
+    const validationSchema = Yup.object().shape({
+        username: Yup.string().required("Username is required"),
+        password: Yup.string().required("Password is required"),
+      });
+      
     const formik = useFormik({
         initialValues: {
             username: '',
             password: ''
         },
+        validationSchema: validationSchema,
         onSubmit: async (values) => {
             let payload = {
                 username: values.username,
                 password: values.password
             }
             dispatch(UserSigninRequest(payload))
-            router.push('/')
+            router.push('/users/profile')
         }
     })
 return (
@@ -58,7 +65,7 @@ return (
         </div>
         <div className="mt-6 space-y-2">
             <div className="flex gap-x-2">
-                <button type="submit" className="w-full px-8 py-3 text-blue-100 bg-blue-600 rounded-md">Signup</button>
+                <button type="submit" className="w-full px-8 py-3 text-blue-100 bg-blue-600 rounded-md">Signin</button>
             </div>
             </div>
         <p className="text-sm font-light text-gray-500 dark:text-gray-400">

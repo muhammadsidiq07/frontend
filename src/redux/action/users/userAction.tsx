@@ -1,38 +1,45 @@
-import * as UserAction from '../../constant/users/userConstant';
+import * as ActionType from '../../constant/users/userConstant';
 
-export const doGetSigninRequest = (payload: any) => ({
-    type : UserAction.GET_SIGNIN_REQUEST, payload
+export const UserSigninRequest = (payload: any) => ({
+    type: ActionType.USER_SIGNIN_REQUEST,
+    payload
 })
 
-export const doGetSigninSuccess = (payload: any) =>({
-    type: UserAction.GET_SIGNIN_SUCCESS, payload
+export const UserSigninSuccess = (payload: any) => ({
+    type: ActionType.USER_SIGNIN_SUCCESS,
+    payload
 })
 
-export const doAddSignupRequest = (payload: any) => ({
-    type: UserAction.ADD_SIGNUP_REQUEST, payload
+export const UserSigninFailed = (payload: any) => ({
+    type: ActionType.USER_SIGNIN_FAILED,
+    payload
 })
 
-export const doAddSignupSuccess = (payload: any) => ({
-    type: UserAction.ADD_SIGNUP_SUCCESS, payload
+export const UserSignupRequest = (payload: any) => ({
+    type: ActionType.USER_SIGNUP_REQUEST,
+    payload
 })
 
-export const doAddSignupFailed = (payload: any) => ({
-    type: UserAction.ADD_SIGNUP_FAILED, payload
+export const UserSignupSuccess = (payload: any) => ({
+    type: ActionType.USER_SIGNUP_SUCCESS,
+    payload
 })
 
-export const doPushSignoutRequest = (payload: any) => ({
-    type: UserAction.POST_SIGNOUT_REQUEST, payload
+export const UserSignupFailed = (payload: any) => ({
+    type: ActionType.USER_SIGNUP_FAILED,
+    payload
 })
 
-export const doPushSignoutSuccess = (payload: any) => ({
-    type: UserAction.POST_SIGNOUT_SUCCESS, payload
+export const UserSignoutRequest = () => ({
+    type: ActionType.USER_SIGNOUT_REQUEST
 })
 
-export const doPushSignoutFailed = (payload: any) => ({
-    type: UserAction.POST_SIGNOUT_FAILED, payload
+export const UserSignoutSuccess = (payload: any) => ({
+    type: ActionType.USER_SIGNOUT_SUCCESS,
+    payload
 })
 
-export const doMessageNotification = (message: any) =>({
-    type: UserAction.MESSAGE_NOTIFICATION,
-    payload : message
+export const UserSignoutFailed = (payload: any) => ({
+    type: ActionType.USER_SIGNOUT_FAILED,
+    payload
 })

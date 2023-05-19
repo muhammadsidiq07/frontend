@@ -1,12 +1,11 @@
-export const GET_SIGNIN_REQUEST = 'get/signin/request'
-export const GET_SIGNIN_SUCCESS = 'get/signin/success'
+export const USER_SIGNIN_REQUEST = 'user/signin/request';
+export const USER_SIGNIN_SUCCESS = 'user/signin/success';
+export const USER_SIGNIN_FAILED  = 'user/signin/failed';
 
-export const ADD_SIGNUP_REQUEST = 'add/signup/request'
-export const ADD_SIGNUP_SUCCESS = 'add/signup/success'
-export const ADD_SIGNUP_FAILED = 'add/signup/failed'
+export const USER_SIGNUP_REQUEST = 'user/signup/request';
+export const USER_SIGNUP_SUCCESS = 'user/signup/success';
+export const USER_SIGNUP_FAILED  = 'user/signup/failed';
 
-export const POST_SIGNOUT_REQUEST = 'post/signout/request'
-export const POST_SIGNOUT_SUCCESS = 'post/signout/success'
-export const POST_SIGNOUT_FAILED = 'post/signout/failed'
-
-export const MESSAGE_NOTIFICATION = 'message/notification'
+export const USER_SIGNOUT_REQUEST = 'user/signout/request';
+export const USER_SIGNOUT_SUCCESS = 'user/signout/success';
+export const USER_SIGNOUT_FAILED  = 'user/signout/failed';

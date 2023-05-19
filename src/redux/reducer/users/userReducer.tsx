@@ -1,9 +1,9 @@
-import * as UserType from '../../constant/users/userConstant';
+import * as AcitonType from '../../constant/users/userConstant';
 import { getCookie } from 'cookies-next';
 
 const getFromCookies = (key: any) => {
     if (!key || typeof window === 'undefined') {
-        return ""
+        return ''
     }
     return getCookie(key)
 }
@@ -16,19 +16,19 @@ const INIT_STATE = {
 
 const UserReducer = (state = INIT_STATE, action: any) => {
     switch (action.type) {
-        case UserType.GET_SIGNIN_REQUEST:
+        case AcitonType.USER_SIGNIN_REQUEST:
             return state
-        case UserType.GET_SIGNIN_SUCCESS:
+        case AcitonType.USER_SIGNIN_SUCCESS:
             return GetSigninSuccess(state, action)
-        case UserType.ADD_SIGNUP_REQUEST:
+        case AcitonType.USER_SIGNUP_REQUEST:
             return state
-        case UserType.ADD_SIGNUP_SUCCESS:
+        case AcitonType.USER_SIGNUP_SUCCESS:
             return AddSignupSuccess(state, action)
-        case UserType.POST_SIGNOUT_REQUEST:
+        case AcitonType.USER_SIGNOUT_REQUEST:
             return state
-        case UserType.POST_SIGNOUT_SUCCESS:
+        case AcitonType.USER_SIGNOUT_SUCCESS:
             return PushSignoutSuccess(state, action)
-        case UserType.MESSAGE_NOTIFICATION:
+        case AcitonType.MESSAGE_NOTIFICATION:
             return ShowMessage(state, action)
         default:
             return state
@@ -47,7 +47,8 @@ const PushSignoutSuccess = (state: any, action: any) => {
     return {
         ...state,
         UserProfile: null,
-        message: "",
+        UserSignup: null,
+        message: '',
     }
 }
 

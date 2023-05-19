@@ -1,10 +1,10 @@
 import { call, put } from 'redux-saga/effects';
-import UserBonusPoints from '@/api/users/user-bonus-points';
+import UserBonusPoints from '../../../api/users/user-bonus-points';
 import { GetUserBonusPointsSuccess, GetUserBonusPointsFailed, 
   AddUserBonusPointsSuccess, AddUserBonusPointsFailed, 
   FindUserBonusPointsSuccess, FindUserBonusPointsFailed, 
   EditUserBonusPointsSuccess, EditUserBonusPointsFailed, 
-  DelUserBonusPointsSuccess, DelUserBonusPointsFailed } from '@/redux/action/users/user-bonus-pointsAction';
+  DelUserBonusPointsSuccess, DelUserBonusPointsFailed } from '../../../redux/action/users/user-bonus-pointsAction';
 
 function* handleGetUserBonusPoints(): any {
   try {
