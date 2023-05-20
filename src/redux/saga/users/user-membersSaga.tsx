@@ -4,7 +4,8 @@ import { GetUserMembersSuccess, GetUserMembersFailed,
   AddUserMembersSuccess, AddUserMembersFailed, 
   FindUserMembersSuccess, FindUserMembersFailed, 
   EditUserMembersSuccess, EditUserMembersFailed, 
-  DelUserMembersSuccess, DelUserMembersFailed } from '../../../redux/action/users/user-membersAction';
+  DelUserMembersSuccess, DelUserMembersFailed } 
+  from '../../../redux/action/users/user-membersAction';
 
 function* handleGetUserMembers(): any {
   try {

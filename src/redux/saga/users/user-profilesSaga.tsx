@@ -4,7 +4,8 @@ import { GetUserProfilesSuccess, GetUserProfilesFailed,
   AddUserProfilesSuccess, AddUserProfilesFailed, 
   FindUserProfilesSuccess, FindUserProfilesFailed, 
   EditUserProfilesSuccess, EditUserProfilesFailed, 
-  DelUserProfilesSuccess, DelUserProfilesFailed } from '../../../redux/action/users/user-profilesAction';
+  DelUserProfilesSuccess, DelUserProfilesFailed } 
+  from '../../../redux/action/users/user-profilesAction';
 
 function* handleGetUserProfiles(): any {
   try {

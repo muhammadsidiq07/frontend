@@ -4,7 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image"; 
-import { doPushSignoutRequest } from "../../redux/action/users/userAction";
+import { UserSignoutRequest } from "../../redux/action/users/userAction";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
@@ -15,7 +15,7 @@ export default function Header() {
   const { UserProfile } = useSelector((state: any) => state.userState)
   const router = useRouter();
   const logout = () => {
-    dispatch(doPushSignoutRequest())
+    dispatch(UserSignoutRequest())
     router.reload()
 }
 

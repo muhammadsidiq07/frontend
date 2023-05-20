@@ -26,7 +26,7 @@ export default function Signup() {
             userEmail: '',
             uspaPasswordhash: '',
             uspaPasswordsalt: '',
-            userPhoneNumber: '',
+            userPhoneNumber: ''
         },
         validationSchema: validationSchema,
         onSubmit: async (values) => {
@@ -35,7 +35,7 @@ export default function Signup() {
                 userEmail: values.userEmail,
                 uspaPasswordhash: values.uspaPasswordhash,
                 uspaPasswordsalt: values.uspaPasswordsalt,
-                userPhoneNumber: values.userPhoneNumber,
+                userPhoneNumber: values.userPhoneNumber
             }
             dispatch(UserSignupRequest(payload));
             router.push("/signupGuest")

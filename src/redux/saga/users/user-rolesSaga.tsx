@@ -4,7 +4,8 @@ import { GetUserRolesSuccess, GetUserRolesFailed,
   AddUserRolesSuccess, AddUserRolesFailed, 
   FindUserRolesSuccess, FindUserRolesFailed, 
   EditUserRolesSuccess, EditUserRolesFailed, 
-  DelUserRolesSuccess, DelUserRolesFailed } from '../../../redux/action/users/user-rolesAction';
+  DelUserRolesSuccess, DelUserRolesFailed } 
+  from '../../../redux/action/users/user-rolesAction';
 
 function* handleGetUserRoles(): any {
   try {
