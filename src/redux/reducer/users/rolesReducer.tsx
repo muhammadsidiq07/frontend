@@ -1,8 +1,8 @@
 import * as ActionType from '../../constant/users/rolesConstant';
 
 const init_state = {
-    UserRoles : [],
-    userRoles: [],
+    userroles : [],
+    userrole: [],
 
 };
 
@@ -35,9 +35,10 @@ const RolesReducer = (state = init_state, action: any) => {
     };
           
 const GetRolesSuccessfully = (state: any, action: any) => {
+    const { payload } = action;
     return {
         ...state,
-        UserRoles: action.payload,
+        userroles: payload,
         };
     };
           
@@ -45,7 +46,7 @@ const AddRolesSuccessfully = (state: any, action: any) => {
     const { payload } = action;
         return {
             ...state,
-            UserRoles: [...state.UserRoles, payload],
+            userroles: [...state.userroles, payload],
         };
     };
           
@@ -59,7 +60,7 @@ const FindRolesSuccessfully = (state: any, action: any) => {
     const { payload } = action;
         return {
             ...state,
-            userRoles: payload,
+            userrole: payload,
         };
     };
           

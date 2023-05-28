@@ -1,25 +1,25 @@
 import { takeEvery, all} from 'redux-saga/effects';
-import * as ActionTypeUsers from '@/redux/constant/users/usersConstant';
+import * as ActionTypeUsers from '../../constant/users/usersConstant';
 import { handleGetUsers, handleFindUsers,
     handleCreateUsers, handleEditUsers, handleDelUsers  } from './usersSaga';
-import * as ActionTypeUserRoles from '@/redux/constant/users/user-rolesConstant';
+import * as ActionTypeUserRoles from '../../constant/users/user-rolesConstant';
 import { handleGetUserRoles, handleFindUserRoles,
      handleCreateUserRoles, handleEditUserRoles, handleDelUserRoles } from './user-rolesSaga';
-import * as ActionTypeUserProfiles from '@/redux/constant/users/user-profilesConstant';
+import * as ActionTypeUserProfiles from '../../constant/users/user-profilesConstant';
 import { handleGetUserProfiles, handleFindUserProfiles, 
     handleCreateUserProfiles, handleEditUserProfiles, handleDelUserProfiles} from './user-profilesSaga';
-import * as ActionTypeUserPassword from '@/redux/constant/users/user-passwordConstant';
+import * as ActionTypeUserPassword from '../../constant/users/user-passwordConstant';
 import { handleGetUserPassword, handleFindUserPassword, handleCreateUserPassword,
     handleEditUserPassword, handleDelUserPassword } from './user-passwordSaga';
-import * as ActionTypeUserMembers from '@/redux/constant/users/user-membersConstant';
+import * as ActionTypeUserMembers from '../../constant/users/user-membersConstant';
 import { handleGetUserMembers, handleFindUserMembers, handleCreateUserMembers,
     handleEditUserMembers, handleDelUserMembers } from './user-membersSaga';
-import * as ActionTypeUserBonusPoints from '@/redux/constant/users/user-bonus-pointsConstant';
+import * as ActionTypeUserBonusPoints from '../../constant/users/user-bonus-pointsConstant';
 import { handleGetUserBonusPoints, handleFindUserBonusPoints, handleCreateUserBonusPoints,
     handleEditUserBonusPoints, handleDelUserBonusPoints} from './user-bonus-pointsSaga';
-import * as ActionTypeRoles from '@/redux/constant/users/rolesConstant';
+import * as ActionTypeRoles from '../../constant/users/rolesConstant';
 import { handleGetRoles, handleFindRoles, handleCreateRoles, handleEditRoles, handleDelRoles  } from './rolesSaga';
-import * as ActionTypeUser from '@/redux/constant/users/userConstant';
+import * as ActionTypeUser from '../../constant/users/userConstant';
 import { handleSignin, handleSignout, handleSignup } from './userSaga';
 
 function* watchAll(){

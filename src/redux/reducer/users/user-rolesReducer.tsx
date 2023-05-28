@@ -1,13 +1,12 @@
 import * as ActionType from '../../constant/users/user-rolesConstant';
 
-const init_state = {
+const INIT_STATE = {
     userRoles: [],
     UserRoles: []
 
 };
 
-
-const UserRolesReducer = (state = init_state, action: any) => {
+const UserRolesReducer = (state = INIT_STATE, action: any) => {
     switch (action.type) {
         case ActionType.GET_USERROLES_REQUEST:
             return { ...state };
@@ -35,9 +34,10 @@ const UserRolesReducer = (state = init_state, action: any) => {
     };
           
 const GetUserRolesSuccessfully = (state: any, action: any) => {
+    const {payload} = action;
     return {
         ...state,
-        userRoles: action.payload,
+        userRoles: payload,
         };
     };
           

@@ -68,7 +68,7 @@ export default function index() {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span className="ml-3">My Accounts</span>
+                <span className="ml-3">My Account</span>
               </Link>
             </li>
           </ul>

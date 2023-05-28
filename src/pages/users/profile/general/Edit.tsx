@@ -2,59 +2,69 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik, FormikProvider } from "formik";
 import { FindUsersRequest, EditUsersRequest } from "../../../../redux/action/users/usersAction";
-import { FindRolesRequest, EditRolesRequest } from "../../../../redux/action/users/rolesAction";
+import { FindUserRolesRequest, EditUserRolesRequest } from "../../../../redux/action/users/user-rolesAction";
 import { FindUserProfilesRequest, EditUserProfilesRequest } from "../../../../redux/action/users/user-profilesAction";
 
 export default function EditGeneral(props: any) {
     const [showModal, setShowModal] = useState(false);
     const [id, setId] = useState<number>();
     const dispatch = useDispatch();
-    const { usmeUser } = useSelector((state: any) => state.usersState);
-    const { UserRoles } = useSelector((state: any) => state.rolesState);
-    const { userProfiles } = useSelector((state: any) => state.userprofilesState);
+    const { user } = useSelector((state: any) => state.usersState);
+    const { UserRoles } = useSelector((state: any) => state.UserRolesState);
+    const { userprofile } = useSelector((state: any) => state.userprofilesState);
 
 useEffect(() => {
-    dispatch(FindUsersRequest(id));
-    dispatch(FindRolesRequest(id));
-    dispatch(FindUserProfilesRequest(id));
-}, [dispatch, id, showModal]);
+    dispatch(FindUsersRequest(props.id));
+    dispatch(FindUserRolesRequest(props.id));
+    dispatch(FindUserProfilesRequest(props.id));
+}, [dispatch, props.id, showModal]);
+
 
 const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
         userId: props.id,
-        userFullName: usmeUser.userFullName,
-        userType: usmeUser.userType,
-        userPhoneNumber: usmeUser.userPhoneNumber,
-        userEmail: usmeUser.userEmail,
-        roleId: props.id,
-        roleName: UserRoles.roleName,
+        userFullName: user.userFullName,
+        userType: user.userType,
+        userCompanyName: user.userCompanyName,
+        userPhoneNumber: user.userPhoneNumber,
+        userEmail: user.userEmail,
+        usroUserId: props.id,
+        usroRole:UserRoles.usroRole,
         usproId: props.id,
-        usproNationalId: userProfiles.usproNationalId,
-        usproJobTitle: userProfiles.usproJobTitle,
-        usproGender: userProfiles.usproGender,
-        usproMartialStatus: userProfiles.usproMartialStatus,
-        usproBirtDate: userProfiles.usproBirtDate,
+        usproNationalId: userprofile.usproNationalId,
+        usproJobTitle: userprofile.usproJobTitle,
+        usproGender: userprofile.usproGender,
+        usproMartialStatus: userprofile.usproMartialStatus,
+        usproBirtDate: userprofile.usproBirtDate,
     },
     onSubmit: async (values) => {
       const payload = {
-        userId: values.userId,
+        userId: props.id,
         userFullName: values.userFullName,
         userType: values.userType,
+        userCompanyName: values.userCompanyName,
         userPhoneNumber: values.userPhoneNumber,
         userEmail: values.userEmail,
-        roleId: values.roleId,
-        roleName: values.roleName,
-        usproId: values.usproId,
+      }
+      const payload1 = {
+        usroUserId: props.id,
+        usroRole: Number(values.usroRole),
+      }
+      const payload2 = {
+        usproId: props.id,
         usproNationalId: values.usproNationalId,
         usproJobTitle: values.usproJobTitle,
         usproGender: values.usproGender,
         usproMartialStatus: values.usproMartialStatus,
         usproBirtDate: values.usproBirtDate,
       }
+      console.log(payload);
+      console.log(payload1);
+      console.log(payload2);
         dispatch(EditUsersRequest(payload));
-        dispatch(EditRolesRequest (payload));
-        dispatch(EditUserProfilesRequest(payload));
+        dispatch(EditUserRolesRequest (payload1));
+        dispatch(EditUserProfilesRequest(payload2));
         props.setRefresh(true);
         setShowModal(false);
     },
@@ -83,7 +93,7 @@ return (
       {showModal ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            <div className=" overflow-y-scroll max-h-96 relative w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
@@ -136,8 +146,8 @@ return (
                             Type
                           </label>
                           <select
-                              name="roleName"
-                              id="roleName"
+                              name="userType"
+                              id="userType"
                               onChange={formik.handleChange}
                               value={formik.values.userType}
                               onBlur={formik.handleBlur}
@@ -150,10 +160,25 @@ return (
                                 className="text-black">
                                 Type
                               </option>
-                              <option value={"T"}>Travel Agent</option>
-                              <option value={"C"}>Corporate</option>
-                              <option value={"I"}>Individual</option>
+                              <option value={"T"}>T=Travel Agent</option>
+                              <option value={"C"}>C=Corporate</option>
+                              <option value={"I"}>I=Individual</option>
                             </select>
+                        </div>
+                        <div className="mb-4">
+                          <label htmlFor="userCompanyName" className="block text-black text-sm font-bold mb-2">
+                            Company
+                          </label>
+                          <input
+                            className=" border rounded w-full py-2 px-3 text-black border-slate-900"
+                            type="text"
+                            name="userCompanyName"
+                            id="userCompanyName"
+                            onChange={formik.handleChange}
+                            value={formik.values.userCompanyName}
+                            placeholder="PT.XYZ"
+                            required={true}
+                          />
                         </div>
                       </div>
                       <div className="flex gap-10">
@@ -169,7 +194,6 @@ return (
                             onChange={formik.handleChange}
                             value={formik.values.userPhoneNumber}
                             placeholder="123-45-678" 
-                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                           />
                         </div>
                         <div className="mb-4">
@@ -177,10 +201,10 @@ return (
                             Role Type
                           </label>
                             <select
-                              name="roleName"
-                              id="roleName"
+                              name="usroRole"
+                              id="usroRole"
                               onChange={formik.handleChange}
-                              value={formik.values.roleName}
+                              value={formik.values.usroRole}
                               onBlur={formik.handleBlur}
                               className=" border rounded w-full py-2 px-3 text-black border-slate-900">
                               <option
@@ -191,25 +215,18 @@ return (
                                 className="text-black">
                                 Role Type
                               </option>
-                              <option value={"Guest"}>Guest</option>
-                              <option value={"Manajer"}>Manajer</option>
-                              <option value={"OfficeBoy"}>OfficeBoy</option>
-                              <option value={"Admin"}>Admin</option>
-                              <option value={"User"}>User</option>
+                              <option value={"1"}>1=Guest</option>
+                              <option value={"2"}>2=Manajer</option>
+                              <option value={"3"}>3=OfficeBoy</option>
+                              <option value={"4"}>4=Admin</option>
+                              <option value={"5"}>5=User</option>
                             </select>
                             </div>
                             </div>
 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
         <h3 className="text-3xl font-semibold">Profile</h3>
-            <button className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                onClick={() => setShowModal(false)}>
-            <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none"></span>
-        </button>
     </div>
 {/*body*/}
-    <div className="relative p-6 flex-auto">
-        <FormikProvider value={formik}>
-            <form onSubmit={formik.handleSubmit}>
                 <div className="flex gap-10">
                     <div className="mb-4">
                         <label className="block text-black text-sm font-bold mb-2"> National Id </label>
@@ -270,8 +287,8 @@ return (
                               >
                                 Gender
                               </option>
-                              <option value={"M"}>Male</option>
-                              <option value={"F"}>Famale</option>
+                              <option value={"M"}>M=Male</option>
+                              <option value={"F"}>F=Famale</option>
                             </select>
                             </div>
 
@@ -314,9 +331,6 @@ return (
                       </div>
                     </form>
                   </FormikProvider>
-                </div>
-            </form>
-        </FormikProvider>
     </div>
 </div>
     </div>

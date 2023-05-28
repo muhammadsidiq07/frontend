@@ -1,8 +1,8 @@
 import * as ActionType from '../../constant/users/user-membersConstant';
 
 const init_state = {
-    userMembers: [],
-    UserMembers: [],
+    usermembers: [],
+    usermember: [],
 
 };
 
@@ -35,9 +35,10 @@ const UserMembersReducer = (state = init_state, action: any) => {
     };
           
 const GetUserMembersSuccessfully = (state: any, action: any) => {
+    const { payload } = action;
     return {
         ...state,
-        userMembers: action.payload,
+        usermembers: payload,
         };
     };
           
@@ -45,7 +46,7 @@ const AddUserMembersSuccessfully = (state: any, action: any) => {
     const { payload } = action;
         return {
             ...state,
-            userMembers: [...state.userMembers, payload],
+            usermembers: [...state.usermembers, payload],
         };
     };
           
@@ -59,7 +60,7 @@ const FindUserMembersSuccessfully = (state: any, action: any) => {
     const { payload } = action;
         return {
             ...state,
-            UserMembers: payload,
+            usermember: payload,
         };
     };
           

@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik, FormikProvider } from "formik";
-import { FindUserPasswordRequest, EditUserPasswordRequest } from "../../../../redux/action/users/user-passwordAction";
+import { FindUserPasswordRequest, EditUserPasswordRequest } 
+from "../../../../redux/action/users/user-passwordAction";
 
 export default function Edit(props: any) {
     const [showModal, setShowModal] = useState(false);
     const [id, setId] = useState<number>();
     const dispatch = useDispatch();
-    const { userPassword } = useSelector((state: any) => state.userpasswordState);
+    const { UserPassword } = useSelector((state: any) => state. userPasswordState);
 
 useEffect(() => {
-    dispatch(FindUserPasswordRequest(id));
-}, [dispatch, id, showModal]);
+    dispatch(FindUserPasswordRequest(props.id));
+}, [dispatch, props.id, showModal]);
+
+console.log(props.id);
 
 const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
         uspaUserId: props.id,
-        uspaPasswordhash: userPassword.uspaPasswordhash,
-        uspaPasswordsalt: userPassword.uspaPasswordsalt,
+        uspaPasswordhash: '',
+        uspaPasswordsalt: '',
     },
     onSubmit: async (values) => {
       const payload = {

@@ -11,8 +11,8 @@ function classNames(...classes: any) {
 }
 
 export default function Header() {
-  const dispatch = useDispatch()
-  const { UserProfile } = useSelector((state: any) => state.userState)
+  const dispatch = useDispatch();
+  const { UserProfile } = useSelector((state: any) => state.userState);
   const router = useRouter();
   const logout = () => {
     dispatch(UserSignoutRequest())
@@ -21,7 +21,7 @@ export default function Header() {
 
 useEffect(() => {
   if (!UserProfile) {
-      router.push('/signin')
+      router.push('/signin');
   }
 }, [UserProfile, router])
   return (

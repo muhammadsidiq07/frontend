@@ -1,8 +1,8 @@
 import * as ActionType from '../../constant/users/user-bonus-pointsConstant';
 
 const init_state = {
-    userBonusPoints: [], 
-    UserBonusPoints: [],
+    userbonuspoints: [], 
+    userbonuspoint: [],
 
 };
 
@@ -35,9 +35,10 @@ const UserBonusPointsReducer = (state = init_state, action: any) => {
     };
           
 const GetUserBonusPointsSuccessfully = (state: any, action: any) => {
+    const { payload } = action;
     return {
         ...state,
-        userBonusPoints: action.payload,
+        userbonuspoints: payload,
         };
     };
           
@@ -45,7 +46,7 @@ const AddUserBonusPointsSuccessfully = (state: any, action: any) => {
     const { payload } = action;
         return {
             ...state,
-            userBonusPoints: [...state.userBonusPoints, payload],
+            userbonuspoints: [...state.userbonuspoints, payload],
         };
     };
           
@@ -59,7 +60,7 @@ const FindUserBonusPointsSuccessfully = (state: any, action: any) => {
     const { payload } = action;
         return {
             ...state,
-            UserBonusPoints: payload,
+            userbonuspoint: payload,
         };
     };
           

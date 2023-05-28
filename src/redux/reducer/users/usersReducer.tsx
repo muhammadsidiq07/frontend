@@ -1,12 +1,12 @@
 import * as ActionType from '../../constant/users/usersConstant';
 
-const init_state = {
-    usmeUser: [],
-    Users: [],
+const INIT_STATE = {
+    users: [],
+    user: [],
 
 };
 
-const UsersReducer = (state = init_state, action: any) => {
+const UsersReducer = (state = INIT_STATE, action: any) => {
     switch (action.type) {
         case ActionType.GET_USERS_REQUEST:
             return { ...state };
@@ -34,9 +34,10 @@ const UsersReducer = (state = init_state, action: any) => {
     };
           
 const GetUsersSuccessfully = (state: any, action: any) => {
+    const {payload} = action;
     return {
         ...state,
-            usmeUser: action.payload,
+        users: payload,
         };
     };
           
@@ -44,7 +45,7 @@ const AddUsersSuccessfully = (state: any, action: any) => {
     const { payload } = action;
         return {
             ...state,
-            usmeUser: [...state.usmeUser, payload],
+            users: [...state.users, payload],
         };
     };
           
@@ -58,7 +59,7 @@ const FindUsersSuccessfully = (state: any, action: any) => {
     const { payload } = action;
         return {
             ...state,
-            Users: payload,
+            user: payload,
         };
     };
           

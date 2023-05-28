@@ -1,13 +1,12 @@
 import * as ActionType from '../../constant/users/user-passwordConstant';
 
-const init_state = {
+const INIT_STATE = {
     userPassword: [],
     UserPassword: [],
 
 };
 
-
-const UserPasswordReducer = (state = init_state, action: any) => {
+const UserPasswordReducer = (state = INIT_STATE, action: any) => {
     switch (action.type) {
         case ActionType.GET_USERPASSWORD_REQUEST:
             return { ...state };
@@ -35,9 +34,10 @@ const UserPasswordReducer = (state = init_state, action: any) => {
     };
           
 const GetUserPasswordSuccessfully = (state: any, action: any) => {
+    const {payload} = action;
     return {
         ...state,
-        userPassword: action.payload,
+        userPassword: payload,
         };
     };
           
@@ -45,7 +45,7 @@ const AddUserPasswordSuccessfully = (state: any, action: any) => {
     const { payload } = action;
         return {
             ...state,
-            userPassword: [...state.userPassword, payload],
+            userPassword: [...state. userPassword, payload],
         };
     };
           
