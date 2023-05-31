@@ -59,9 +59,9 @@ const formik = useFormik({
         usproMartialStatus: values.usproMartialStatus,
         usproBirtDate: values.usproBirtDate,
       }
-      console.log(payload);
-      console.log(payload1);
-      console.log(payload2);
+      // console.log(payload);
+      // console.log(payload1);
+      // console.log(payload2);
         dispatch(EditUsersRequest(payload));
         dispatch(EditUserRolesRequest (payload1));
         dispatch(EditUserProfilesRequest(payload2));
@@ -247,8 +247,8 @@ return (
                             <input
                               className=" border rounded w-full py-2 px-3 text-black border-slate-900"
                               type="Date"
-                              name="faciEnddate"
-                              id="faciEnddate"
+                              name="usproBirtDate"
+                              id="usproBirtDate"
                               onChange={formik.handleChange}
                               value={formik.values.usproBirtDate}
                             />
@@ -295,8 +295,8 @@ return (
                             <div className="mb-4">
                                 <label className="block text-black text-sm font-bold mb-2">Marital</label>
                             <select
-                              name="usproGender"
-                              id="usproGender"
+                              name="usproMartialStatus"
+                              id="usproMartialStatus"
                               onChange={formik.handleChange}
                               value={formik.values.usproMartialStatus}
                               onBlur={formik.handleBlur}

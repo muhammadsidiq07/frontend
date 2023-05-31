@@ -9,14 +9,14 @@ import * as Yup from 'yup';
 export default function Signup() {
     const dispatch = useDispatch();
     const router =useRouter();
-    const validationSchema = Yup.object().shape({
-        userPhoneNumber: Yup.string().max(14).required("Phone Number is required"),
-     });
+    // const validationSchema = Yup.object().shape({
+    //     userPhoneNumber: Yup.string().max(14).required("Phone Number is required"),
+    //  });
     const formik = useFormik({
         initialValues: {
-            userPhoneNumber: "",
+            userPhoneNumber: '',
         },
-        validationSchema: validationSchema,
+        // validationSchema: validationSchema,
         onSubmit: async (values) => {
             let payload = {
                 userPhoneNumber: values.userPhoneNumber,

@@ -6,7 +6,6 @@ const init_state = {
 
 };
 
-
 const UserMembersReducer = (state = init_state, action: any) => {
     switch (action.type) {
         case ActionType.GET_USERMEMBERS_REQUEST:

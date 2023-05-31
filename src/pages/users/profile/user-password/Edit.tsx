@@ -14,7 +14,7 @@ useEffect(() => {
     dispatch(FindUserPasswordRequest(props.id));
 }, [dispatch, props.id, showModal]);
 
-console.log(props.id);
+// console.log(props.id);
 
 const formik = useFormik({
     enableReinitialize: true,

@@ -4,7 +4,7 @@ import React from "react";
 const navigation = [
   {
     name: "My Profile",
-    href: "/dashboard",
+    href: "/users/profile",
     svg: (
       <svg
       aria-hidden="true"

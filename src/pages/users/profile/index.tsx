@@ -82,7 +82,7 @@ export default function Index() {
             <div className="mb-2 block"> Type: {UserProfile?.userType}</div>
             <div className="mb-2 block"> Email: {UserProfile?.userEmail}</div>
             <div className="mb-2 block"> Hand Phone: {UserProfile?.userPhoneNumber}</div>
-        <div className="col-md-12 bg-light text-right">
+        <div className="col-md-12 bg-blue text-right">
     <div>
 <EditGeneral id={UserProfile?.userMembers.usmeUserId} 
 setRefresh={setRefresh}/>
@@ -96,7 +96,7 @@ setRefresh={setRefresh}/>
                     ></Column> */}
 <h2 className="text-left my-4 font-bold text-3xl">Security</h2>
 <div className="mb-2 block"> Change Password { userPassword?.uspaPasswordhash}</div>
-<div className="col-md-12 bg-light text-right">
+<div className="col-md-12 bg-blue text-right">
     <div>
     <Edit id={UserProfile?.userMembers.usmeUserId} 
 setRefresh={setRefresh}/>
