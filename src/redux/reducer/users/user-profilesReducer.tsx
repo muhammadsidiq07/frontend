@@ -31,42 +31,42 @@ const UserProfilesReducer = (state = init_state, action: any) => {
             return FindUserProfilesRolesSuccessfully(state, action);
         default:
             return { ...state };
-        }
-    };
-          
+    }
+};
+
 const GetUserProfilesRolesSuccessfully = (state: any, action: any) => {
-    const {payload} = action;
+    const { payload } = action;
     return {
         ...state,
         userprofiles: payload,
-        };
     };
-          
+};
+
 const AddUserProfilesRolesSuccessfully = (state: any, action: any) => {
     const { payload } = action;
-        return {
-            ...state,
-            userprofiles: [...state.userprofiles, payload],
-        };
+    return {
+        ...state,
+        userprofiles: [...state.userprofiles, payload],
     };
-          
+};
+
 const DelUserProfilesRolesSuccessfully = (state: any, action: any) => {
     return {
         ...state,
-        };
     };
-          
+};
+
 const FindUserProfilesRolesSuccessfully = (state: any, action: any) => {
     const { payload } = action;
-        return {
-            ...state,
-            userprofile: payload,
-        };
+    return {
+        ...state,
+        userprofile: payload,
     };
-          
+};
+
 const EditUserProfilesRolesSuccessfully = (state: any, action: any) => {
     return {
         ...state,
-        };
     };
+};
 export default UserProfilesReducer;

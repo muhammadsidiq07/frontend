@@ -30,42 +30,42 @@ const UserPasswordReducer = (state = INIT_STATE, action: any) => {
             return FindUserPasswordSuccessfully(state, action);
         default:
             return { ...state };
-        }
-    };
-          
+    }
+};
+
 const GetUserPasswordSuccessfully = (state: any, action: any) => {
-    const {payload} = action;
+    const { payload } = action;
     return {
         ...state,
         userPassword: payload,
-        };
     };
-          
+};
+
 const AddUserPasswordSuccessfully = (state: any, action: any) => {
     const { payload } = action;
-        return {
-            ...state,
-            userPassword: [...state. userPassword, payload],
-        };
+    return {
+        ...state,
+        userPassword: [...state.userPassword, payload],
     };
-          
+};
+
 const DelUserPasswordSuccessfully = (state: any, action: any) => {
     return {
         ...state,
-        };
     };
-          
+};
+
 const FindUserPasswordSuccessfully = (state: any, action: any) => {
     const { payload } = action;
-        return {
-            ...state,
-            UserPassword: payload,
-        };
+    return {
+        ...state,
+        UserPassword: payload,
     };
-          
+};
+
 const EditUserPasswordSuccessfully = (state: any, action: any) => {
     return {
         ...state,
-        };
     };
+};
 export default UserPasswordReducer;

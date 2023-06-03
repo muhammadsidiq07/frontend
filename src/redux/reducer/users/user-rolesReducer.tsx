@@ -30,42 +30,42 @@ const UserRolesReducer = (state = INIT_STATE, action: any) => {
             return FindUserRolesSuccessfully(state, action);
         default:
             return { ...state };
-        }
-    };
-          
+    }
+};
+
 const GetUserRolesSuccessfully = (state: any, action: any) => {
-    const {payload} = action;
+    const { payload } = action;
     return {
         ...state,
         userRoles: payload,
-        };
     };
-          
+};
+
 const AddUserRolesSuccessfully = (state: any, action: any) => {
     const { payload } = action;
-        return {
-            ...state,
-            userRoles: [...state.userRoles, payload],
-        };
+    return {
+        ...state,
+        userRoles: [...state.userRoles, payload],
     };
-          
+};
+
 const DelUserRolesSuccessfully = (state: any, action: any) => {
     return {
         ...state,
-        };
     };
-          
+};
+
 const FindUserRolesSuccessfully = (state: any, action: any) => {
     const { payload } = action;
-        return {
-            ...state,
-            UserRoles: payload,
-        };
+    return {
+        ...state,
+        UserRoles: payload,
     };
-          
+};
+
 const EditUserRolesSuccessfully = (state: any, action: any) => {
     return {
         ...state,
-        };
     };
+};
 export default UserRolesReducer;

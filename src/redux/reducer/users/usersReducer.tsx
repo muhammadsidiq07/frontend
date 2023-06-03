@@ -30,42 +30,42 @@ const UsersReducer = (state = INIT_STATE, action: any) => {
             return FindUsersSuccessfully(state, action);
         default:
             return { ...state };
-        }
-    };
-          
+    }
+};
+
 const GetUsersSuccessfully = (state: any, action: any) => {
-    const {payload} = action;
+    const { payload } = action;
     return {
         ...state,
         users: payload,
-        };
     };
-          
+};
+
 const AddUsersSuccessfully = (state: any, action: any) => {
     const { payload } = action;
-        return {
-            ...state,
-            users: [...state.users, payload],
-        };
+    return {
+        ...state,
+        users: [...state.users, payload],
     };
-          
+};
+
 const DelUsersSuccessfully = (state: any, action: any) => {
     return {
         ...state,
-        };
     };
-          
+};
+
 const FindUsersSuccessfully = (state: any, action: any) => {
     const { payload } = action;
-        return {
-            ...state,
-            user: payload,
-        };
+    return {
+        ...state,
+        user: payload,
     };
-          
+};
+
 const EditUsersSuccessfully = (state: any, action: any) => {
     return {
         ...state,
-        };
     };
+};
 export default UsersReducer;

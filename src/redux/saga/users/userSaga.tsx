@@ -1,6 +1,6 @@
-import {call,put} from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import User from '../../../api/users/user';
-import { UserSigninFailed, UserSigninSuccess, UserSignoutFailed, UserSignoutSuccess, UserSignupFailed, UserSignupSuccess} from '../../../redux/action/users/userAction'
+import { UserSigninFailed, UserSigninSuccess, UserSignoutFailed, UserSignoutSuccess, UserSignupFailed, UserSignupSuccess } from '../../../redux/action/users/userAction'
 import { setCookie, deleteCookie } from 'cookies-next';
 
 function* handleSignin(action: any): any {
