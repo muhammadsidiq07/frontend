@@ -15,6 +15,7 @@ import { Column } from 'primereact/column';
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.css";
+import { SelectButton, SelectButtonChangeEvent } from 'primereact/selectbutton';
 
 import Edit from './user-password/Edit'
 import LayoutUser from '../layout';
@@ -31,6 +32,18 @@ export default function Index() {
     const { UserProfile } = useSelector((state: any) => state.userState);
     const { userPassword } = useSelector((state: any) => state.userPasswordState);
 
+    interface SizeOption {
+        label: string;
+        value: string;
+    }
+
+    const [sizeOptions] = useState<SizeOption[]>([
+        { label: 'Bonus Points', value: 'small' },
+        { label: 'History Members', value: 'small' }
+    ]);
+
+    const [size, setSize] = useState(sizeOptions[1].value);
+
     useEffect(() => {
         // console.log(UserProfile?.userBonusPoints);
         dispatch(GetUsersRequest());
@@ -41,7 +54,9 @@ export default function Index() {
         dispatch(GetUserProfilesRequest());
         setRefresh(false);
         setLoading(true);
-    }, [refresh, dispatch]);
+    }, [refresh, dispatch]
+    );
+
 
     // const kebabGeneral = (rowData: any) => {
     //     return (
@@ -147,6 +162,10 @@ export default function Index() {
             <div className="mb-2 block"> Point: {UserProfile?.userBonusPoints.ubpoBonusType}</div>
             <div className="mb-2 block"> Status: {UserProfile?.userBonusPoints.ubpoTotalPoints}</div> */}
 
+                                <div className="flex justify-content-center mb-4">
+                                    <SelectButton value={size} onChange={(e: SelectButtonChangeEvent) => setSize(e.value)} options={sizeOptions} />
+                                </div>
+
                                 <DataTable
                                     value={UserProfile?.userBonusPoints}
                                     stripedRows
@@ -166,21 +185,23 @@ export default function Index() {
                                 <div className="p-4 mb-3 text-sm text-black-800 rounded-lg bg-blue-100 dark:bg-gray-800 dark:text-blue-400" role="alert">
                                     <div className="text-left my-2 font-bold text-3xl">History Member</div>
                                 </div>
-                                <div className="mb-3 text-black-500 dark:text-black-400"> Promo Date: {UserProfile?.userMembers.usmePromoteDate}</div>
+                                {/* <div className="mb-3 text-black-500 dark:text-black-400"> Promo Date: {UserProfile?.userMembers.usmePromoteDate}</div>
                                 <div className="mb-3 text-black-500 dark:text-black-400"> Point: {UserProfile?.userMembers.usmePoints}</div>
-                                <div className="mb-3 text-black-500 dark:text-black-400"> Status: {UserProfile?.userMembers.usmeType}</div>
-                                {/* <DataView 
-            value={UserProfile?.userMembers} 
-            stripedRows 
-            tableStyle={{ minWidth: '50rem' }} 
-            className='bg-white text-black' 
-            paginator
-            rows={5}
-            first={first}>
-                <Column field="usmePromoteDate" header="Promo Date"> </Column>
-                <Column field="usmePoints" header="Point"></Column>
-                <Column field="usmeType" header="Status"></Column>
-            </DataView> */}
+                                <div className="mb-3 text-black-500 dark:text-black-400"> Status: {UserProfile?.userMembers.usmeType}</div> */}
+
+                                <DataTable
+                                    value={[UserProfile?.userMembers]}
+                                    stripedRows
+                                    tableStyle={{ minWidth: '50rem' }}
+                                    className='bg-white text-black'
+                                    paginator
+                                    rows={5}
+                                    first={first}
+                                >
+                                    <Column field="usmePromoteDate" header="Promo Date"></Column>
+                                    <Column field="usmePoints" header="Point"></Column>
+                                    <Column field="usmeType" header="Status"></Column>
+                                </DataTable>
                             </div>
                         </div>
                     )}
@@ -189,3 +210,4 @@ export default function Index() {
         </div>
     );
 }
+
